@@ -5,6 +5,8 @@ import './App.css';
 import Home from './components/Home'
 import About from './components/About'
 import Packages from './components/Packages'
+import Nav from "react-bootstrap/Nav"
+import Container from "react-bootstrap/Container"
 
 
 function App() {
@@ -18,19 +20,27 @@ function App() {
         <header>
           <h1 className="title">Welcome to Monty's Mineral SPA</h1>
 
-          <div className="navBar">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About Us</Link>
-              </li>
-              <li>
-                <Link to="/packages">Our Packages</Link>
-              </li>
-            </ul>
-          </div>
+          <Container>
+            <Nav defaultActiveKey="/" variant="tabs" fill>
+              <Nav.Item>
+                <Link to="/">
+                  <Nav.Link href="/">
+                    Home
+                  </Nav.Link>
+                </Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey={"aboutPage"}>
+                  <Link to="/about">About Us</Link>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey={"packagesPage"}>
+                  <Link to="/packages">Our Packages</Link>
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Container>
         </header>
 
         <div className="display">
